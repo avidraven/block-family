@@ -1,38 +1,60 @@
 // Resets, Clearfix, etc
+@import "./partials/_reset";
+@import "./partials/_clearfix";
 
 // Variables
- 
-// Media Query Ranges 
- 
+$global-dark: #222;
+$global-light: #EEE;
+$global-bright: orange;
+$global-padding: 20px;
+$dark: $global-dark;
+
+// Media Query Ranges
+@media (min-width: 600px){
+  .block_family {
+    max-width:550px;
+  }
+}
+
+@media (min-width: 900px){
+  .block_family {
+    max-width:850px;
+  }
+}
+
 // Mixins
+@mixin block_font($block_font_size, $block_font_color){
+  font-size: $block_font_size;
+  color: $block_font_color;
+}
 
 // Styles
 body{
-  background-color: orange;
+  background-color: $global-dark;
   text-align: center;
-  color: #EEE;
+  color: $global-light;
 }
- 
+
 h1, h2, h3, h4{
   font-family: "Helvetica Neue", "Helvetica", sans-serif;
 }
- 
+
 h1{
-  padding: 20px;
+  padding: $global-padding;
 }
- 
+
 h2{
- 
+
 }
- 
- 
+
 .block_family{
   max-width:350px;
   margin:auto;
+  @include block_font(25px, $dark)
 }
- 
+
 .block_family li{
-  background-color: #222;
+  background-color: $global-bright;
   margin-bottom: 20px;
-  padding: 20px;
+  padding: $global-padding;
 }
